@@ -586,14 +586,30 @@ function initMobileDrawer() {
   const links = document.querySelectorAll('.drawer-link');
   if (!toggleBtn || !drawer) return;
 
-  toggleBtn.addEventListener('click', () => {
-    drawer.classList.toggle('open');
-  });
+  function toggleMenu() {
+    const isOpen = drawer.classList.toggle('open');
+    toggleBtn.classList.toggle('active', isOpen);
+    document.body.classList.toggle('no-scroll', isOpen);
+    toggleBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  }
+
+  function closeMenu() {
+    drawer.classList.remove('open');
+    toggleBtn.classList.remove('active');
+    document.body.classList.remove('no-scroll');
+    toggleBtn.setAttribute('aria-expanded', 'false');
+  }
+
+  toggleBtn.addEventListener('click', toggleMenu);
 
   links.forEach((l) => {
-    l.addEventListener('click', () => {
-      drawer.classList.remove('open');
-    });
+    l.addEventListener('click', closeMenu);
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && drawer.classList.contains('open')) {
+      closeMenu();
+    }
   });
 }
 
