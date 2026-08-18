@@ -64,9 +64,10 @@
       <!-- Right: Action -->
       <div class="nav-right font-display">
         <a href="#contact" class="nav-talk-link magnetic-btn">LET'S TALK &rarr;</a>
-        <button id="mobile-toggle" class="mobile-toggle" aria-label="Toggle Navigation">
-          <span></span>
-          <span></span>
+        <button id="mobile-toggle" class="mobile-toggle" aria-label="Open Navigation Menu">
+          <span class="bar bar-1"></span>
+          <span class="bar bar-2"></span>
+          <span class="bar bar-3"></span>
         </button>
       </div>
     </div>
@@ -74,13 +75,25 @@
 
   <!-- Mobile Drawer -->
   <div id="mobile-drawer" class="mobile-drawer font-display" aria-hidden="true">
+    <div class="drawer-header">
+      <div class="drawer-brand">
+        <span class="brand-monogram">FS</span>
+        <span class="brand-fullname">FENIL SOJITRA</span>
+      </div>
+      <button id="drawer-close-btn" class="drawer-close-btn font-display" aria-label="Close Navigation Menu">
+        <span>&times;</span>
+      </button>
+    </div>
     <div class="drawer-inner">
-      <a href="#about" class="drawer-link">01 // ABOUT</a>
-      <a href="#skills" class="drawer-link">02 // SKILLS</a>
-      <a href="#work" class="drawer-link">03 // PROJECTS</a>
-      <a href="#experience" class="drawer-link">04 // EXPERIENCE</a>
-      <a href="resume.html" class="drawer-link" target="_blank">05 // RESUME</a>
-      <a href="#contact" class="drawer-link text-tangerine">06 // LET'S TALK &rarr;</a>
+      <a href="#about" class="drawer-link"><span class="drawer-num">01</span> ABOUT</a>
+      <a href="#skills" class="drawer-link"><span class="drawer-num">02</span> SKILLS</a>
+      <a href="#work" class="drawer-link"><span class="drawer-num">03</span> PROJECTS</a>
+      <a href="#experience" class="drawer-link"><span class="drawer-num">04</span> EXPERIENCE</a>
+      <a href="resume.html" class="drawer-link" target="_blank"><span class="drawer-num">05</span> RESUME</a>
+      <a href="#contact" class="drawer-link drawer-cta"><span class="drawer-num">06</span> LET'S TALK &rarr;</a>
+    </div>
+    <div class="drawer-footer font-display">
+      <span>PYTHON DEVELOPER &bull; AI/ML EXPLORER</span>
     </div>
   </div>
 

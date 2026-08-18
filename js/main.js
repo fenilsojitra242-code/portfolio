@@ -583,6 +583,7 @@ function initNavbarScroll() {
 function initMobileDrawer() {
   const toggleBtn = document.getElementById('mobile-toggle');
   const drawer = document.getElementById('mobile-drawer');
+  const closeBtn = document.getElementById('drawer-close-btn');
   const links = document.querySelectorAll('.drawer-link');
   if (!toggleBtn || !drawer) return;
 
@@ -601,6 +602,9 @@ function initMobileDrawer() {
   }
 
   toggleBtn.addEventListener('click', toggleMenu);
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closeMenu);
+  }
 
   links.forEach((l) => {
     l.addEventListener('click', closeMenu);
