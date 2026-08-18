@@ -1285,7 +1285,7 @@ function initContactForm() {
     }
 
     try {
-      const response = await fetch('https://formsubmit.co/ajax/fenilsojitra242@gmail.com', {
+      const response = await fetch('https://formsubmit.co/ajax/3eb2b23ef7c6c3f4bb497e8aa2fcb956', {
         method: 'POST',
         headers: {
           'Accept': 'application/json'
