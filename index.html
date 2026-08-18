@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO & Social Meta -->
+  <title>Fenil Sojitra — Python Developer & AI/ML Engineer | Colorful Digital Personality</title>
+  <meta name="description" content="Portfolio of Fenil Sojitra — Python Developer and AI/ML Engineer. Crafting intelligent algorithms, scalable backends, and creative digital experiences with personality.">
+  <meta name="author" content="Fenil Sojitra">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23FF6B35'/><text x='16' y='22' font-family='sans-serif' font-size='14' font-weight='900' fill='%23181818' text-anchor='middle'>FS</text></svg>">
+
+  <!-- Google Fonts: Space Grotesk (Display) & Inter (Body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="creative-personality-body">
+
+  <!-- Interactive AI Neural Constellation Background Canvas (Site-wide) -->
+  <canvas id="neural-canvas" class="site-neural-canvas" aria-hidden="true"></canvas>
+
+  <!-- Scroll Progress Bar -->
+  <div id="scroll-progress-bar" class="scroll-progress-bar" aria-hidden="true"></div>
+
+  <!-- Custom Creative Cursor -->
+  <div id="creative-cursor" class="creative-cursor" aria-hidden="true">
+    <div class="cursor-dot"></div>
+    <div class="cursor-badge font-display" id="cursor-badge">EXPLORE</div>
+  </div>
+
+  <!-- Floating Scroll To Top Indicator -->
+  <button id="scroll-top-btn" class="scroll-top-btn font-display magnetic-btn" aria-label="Back to Top">
+    <svg class="scroll-ring" width="44" height="44" viewBox="0 0 44 44">
+      <circle class="scroll-ring-bg" cx="22" cy="22" r="18"></circle>
+      <circle class="scroll-ring-fill" id="scroll-ring-fill" cx="22" cy="22" r="18"></circle>
+    </svg>
+    <span class="scroll-arrow">&uarr;</span>
+  </button>
+
+  <!-- ==================== NAVBAR ==================== -->
+  <header id="navbar" class="clean-creative-navbar">
+    <div class="navbar-container">
+      <!-- Left: Logo -->
+      <a href="#hero" class="nav-brand font-display" aria-label="Fenil Sojitra">
+        <span class="brand-monogram">FS</span>
+        <span class="brand-fullname">FENIL SOJITRA</span>
+      </a>
+
+      <!-- Center: Menu -->
+      <nav class="nav-links font-display" id="nav-links">
+        <a href="#about" class="nav-link" data-section="about">ABOUT</a>
+        <a href="#skills" class="nav-link" data-section="skills">SKILLS</a>
+        <a href="#work" class="nav-link" data-section="work">PROJECTS</a>
+        <a href="#experience" class="nav-link" data-section="experience">EXPERIENCE</a>
+        <a href="resume.html" class="nav-link" target="_blank">RESUME</a>
+      </nav>
+
+      <!-- Right: Action -->
+      <div class="nav-right font-display">
+        <a href="#contact" class="nav-talk-link magnetic-btn">LET'S TALK &rarr;</a>
+        <button id="mobile-toggle" class="mobile-toggle" aria-label="Toggle Navigation">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div id="mobile-drawer" class="mobile-drawer font-display" aria-hidden="true">
+    <div class="drawer-inner">
+      <a href="#about" class="drawer-link">01 // ABOUT</a>
+      <a href="#skills" class="drawer-link">02 // SKILLS</a>
+      <a href="#work" class="drawer-link">03 // PROJECTS</a>
+      <a href="#experience" class="drawer-link">04 // EXPERIENCE</a>
+      <a href="resume.html" class="drawer-link" target="_blank">05 // RESUME</a>
+      <a href="#contact" class="drawer-link text-tangerine">06 // LET'S TALK &rarr;</a>
+    </div>
+  </div>
+
+  <!-- ==================== MAIN CONTENT WRAPPER ==================== -->
+  <main>
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section id="hero" class="hero-section">
+      <div class="page-container">
+        
+        <div class="hero-grid">
+          
+          <!-- Left: Hero Headline -->
+          <div class="hero-text-block reveal-on-scroll reveal-fade-right">
+            <div class="hero-greeting font-display">
+              <span class="greeting-star">&#10022;</span>
+              <span>HELLO, I'M FENIL</span>
+            </div>
+
+            <h1 class="hero-display-title font-display">
+              <span class="word-i">I</span> <span class="word-build">BUILD</span><br>
+              <span class="word-digital">DIGITAL</span><br>
+              <span class="word-things">THINGS.</span>
+            </h1>
+
+            <p class="hero-subtitle font-display">
+              Python Developer &bull; Machine Learning Explorer
+            </p>
+
+            <p class="hero-intro-text">
+              Building practical data analysis pipelines, classical ML models, and interactive tools.
+            </p>
+
+            <div class="hero-btn-group font-display">
+              <a href="#work" class="btn-tangerine magnetic-btn">
+                <span>VIEW MY WORK &nearr;</span>
+              </a>
+              <a href="#about" class="btn-ghost magnetic-btn">
+                <span>ABOUT ME &darr;</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right: Hero Visual (Perfect Framed Editorial Portrait Stage with Floating Animations) -->
+          <div class="hero-portrait-stage reveal-on-scroll reveal-scale-up" id="hero-stage">
+            <div class="portrait-card-container" data-speed="0.8">
+              
+              <!-- Ambient Background Orbit Ring & Shapes -->
+              <div class="ambient-orbit-ring" aria-hidden="true"></div>
+              <div class="ambient-shape shape-star-top font-display" data-speed="1.6">&#10022;</div>
+              <div class="ambient-shape shape-ring-bottom" data-speed="1.3"></div>
+              <div class="ambient-shape shape-mint-sparkle font-display" data-speed="1.8">&#10022;</div>
+
+              <!-- Animated Floating Mini Sparks & Particle Dots -->
+              <div class="floating-particle p-dot-1 bg-tangerine" data-speed="1.9"></div>
+              <div class="floating-particle p-dot-2 bg-mint" data-speed="1.5"></div>
+              <div class="floating-particle p-dot-3 bg-yellow" data-speed="1.7"></div>
+              <div class="floating-particle p-dot-4 bg-lavender" data-speed="2.0"></div>
+
+              <!-- Main Framed Editorial Card -->
+              <div class="portrait-frame bg-lavender-tint">
+                <!-- Inner Arch Background Aura -->
+                <div class="portrait-aura bg-mint"></div>
+                
+                <!-- Fenil Portrait Cutout Image -->
+                <img src="images/fenil.png" alt="Fenil Sojitra — Python Developer & ML Explorer" class="hero-portrait-photo">
+                
+                <!-- Bottom Floating Name Pill -->
+                <div class="portrait-identity-pill font-display">
+                  <span class="live-dot-mint"></span>
+                  <span>FENIL SOJITRA &bull; PYTHON / ML</span>
+                </div>
+              </div>
+
+              <!-- Perimeter Decorative Pin Stickers (Floating) -->
+              <div class="pin-sticker pin-top-left bg-yellow font-display" data-speed="1.2">
+                <span>PYTHON 3</span>
+              </div>
+              <div class="pin-sticker pin-top-right bg-mint font-display" data-speed="1.3">
+                <span>MACHINE LEARNING</span>
+              </div>
+              <div class="pin-sticker pin-bottom-left bg-white font-display" data-speed="1.1">
+                <span>&bull; RAJKOT, GUJARAT</span>
+              </div>
+              <div class="pin-sticker pin-bottom-right bg-tangerine text-white font-display" data-speed="1.4">
+                <span>ENSEMBLE LEARNING</span>
+              </div>
+
+              <!-- Floating Interactive Accent Badges -->
+              <div class="float-badge float-code bg-mint font-display" data-speed="1.8">
+                <span>{ def learn(): }</span>
+              </div>
+              <div class="float-badge float-sparkle bg-tangerine text-white font-display" data-speed="1.9">
+                <span>⚡ ML MODELS</span>
+              </div>
+              <div class="float-badge float-curiosity bg-lavender font-display" data-speed="1.7">
+                <span>100% CURIOSITY</span>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== PERSONALITY MARQUEE STRIP ==================== -->
+    <div class="personality-strip font-display scroll-marquee-container" aria-hidden="true">
+      <div class="marquee-track" id="marquee-track">
+        <span class="m-word text-black">PYTHON</span>
+        <span class="m-dot text-tangerine">&bull;</span>
+        <span class="m-word text-tangerine">DATA</span>
+        <span class="m-dot text-lavender">&bull;</span>
+        <span class="m-word text-lavender-dark">MACHINE LEARNING</span>
+        <span class="m-dot text-yellow">&bull;</span>
+        <span class="m-word text-mint-dark">ENSEMBLES</span>
+        <span class="m-dot text-black">&bull;</span>
+        <span class="m-word text-yellow-dark">LEARN</span>
+        <span class="m-dot text-tangerine">&bull;</span>
+        <span class="m-word text-black">BUILD</span>
+        <span class="m-dot text-mint">&bull;</span>
+        <span class="m-word text-tangerine">REPEAT</span>
+        <span class="m-dot text-lavender">&bull;</span>
+
+        <!-- Loop Duplicate -->
+        <span class="m-word text-black">PYTHON</span>
+        <span class="m-dot text-tangerine">&bull;</span>
+        <span class="m-word text-tangerine">DATA</span>
+        <span class="m-dot text-lavender">&bull;</span>
+        <span class="m-word text-lavender-dark">MACHINE LEARNING</span>
+        <span class="m-dot text-yellow">&bull;</span>
+        <span class="m-word text-mint-dark">ENSEMBLES</span>
+        <span class="m-dot text-black">&bull;</span>
+        <span class="m-word text-yellow-dark">LEARN</span>
+        <span class="m-dot text-tangerine">&bull;</span>
+        <span class="m-word text-black">BUILD</span>
+        <span class="m-dot text-mint">&bull;</span>
+        <span class="m-word text-tangerine">REPEAT</span>
+        <span class="m-dot text-lavender">&bull;</span>
+      </div>
+    </div>
+
+    <!-- ==================== 01 — ABOUT SECTION ==================== -->
+    <section id="about" class="about-section scroll-section" data-section-name="about">
+      <div class="page-container">
+        
+        <div class="section-tag-header font-display reveal-on-scroll reveal-fade-up">
+          <span class="sec-number">01</span>
+          <h2 class="sec-headline">A LITTLE ABOUT ME.</h2>
+        </div>
+
+        <div class="about-grid-card reveal-on-scroll reveal-fade-up">
+          <!-- Left Column -->
+          <div class="about-left-col">
+            <p class="about-lead-paragraph font-display reveal-on-scroll reveal-fade-up">
+              I'm a Python developer actively exploring machine learning and data science.
+            </p>
+            <p class="about-body-paragraph reveal-on-scroll reveal-fade-up">
+              Currently focusing on exploratory data analysis, classical machine learning algorithms, and ensemble methods like Random Forests and XGBoost. I enjoy writing clean code, analyzing structured datasets, and understanding how predictive models work under the hood.
+            </p>
+
+            <div class="about-stat-pills font-display reveal-on-scroll reveal-stagger">
+              <div class="stat-pill bg-mint-tint">
+                <span class="stat-num" data-count="6">06+</span>
+                <span class="stat-lbl">MONTHS EXP</span>
+              </div>
+              <div class="stat-pill bg-yellow-tint">
+                <span class="stat-num" data-count="6">06</span>
+                <span class="stat-lbl">CORE SKILLS</span>
+              </div>
+              <div class="stat-pill bg-lavender-tint">
+                <span class="stat-num" data-count="100">100%</span>
+                <span class="stat-lbl">DEDICATION</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Typographic Stickers Collection -->
+          <div class="about-stickers-wall font-display reveal-on-scroll reveal-stagger">
+            <div class="type-sticker sticker-col-1 bg-mint" data-draggable="true" tabindex="0">
+              <span>PYTHON &bull; CORE</span>
+            </div>
+            <div class="type-sticker sticker-col-2 bg-lavender" data-draggable="true" tabindex="0">
+              <span>SCIKIT-LEARN</span>
+            </div>
+            <div class="type-sticker sticker-col-3 bg-yellow" data-draggable="true" tabindex="0">
+              <span>DATA ANALYSIS</span>
+            </div>
+            <div class="type-sticker sticker-col-4 bg-tangerine text-white" data-draggable="true" tabindex="0">
+              <span>PROBLEM SOLVING</span>
+            </div>
+            <div class="type-sticker sticker-col-5 bg-white" data-draggable="true" tabindex="0">
+              <span>CONTINUOUS LEARNING</span>
+            </div>
+            <div class="type-sticker sticker-col-6 bg-lavender-tint" data-draggable="true" tabindex="0">
+              <span>PANDAS &bull; NUMPY</span>
+            </div>
+            <div class="type-sticker sticker-col-1 bg-yellow" data-draggable="true" tabindex="0">
+              <span>ENSEMBLE &bull; XGBOOST</span>
+            </div>
+            <div class="type-sticker sticker-col-3 bg-mint" data-draggable="true" tabindex="0">
+              <span>SQL &bull; QUERIES</span>
+            </div>
+            <div class="type-sticker sticker-col-2 bg-lavender" data-draggable="true" tabindex="0">
+              <span>MATPLOTLIB &bull; VIZ</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 02 — SKILLS SECTION (GIANT TYPOGRAPHY WALL) ==================== -->
+    <section id="skills" class="skills-section scroll-section" data-section-name="skills">
+      <div class="page-container">
+        
+        <div class="section-tag-header font-display reveal-on-scroll reveal-fade-up">
+          <span class="sec-number">02</span>
+          <h2 class="sec-headline">SKILLS &amp; TECHNOLOGIES.</h2>
+        </div>
+
+        <div class="skills-controls-bar font-display reveal-on-scroll reveal-fade-up">
+          <div class="skills-filter-group" id="skills-filter-group">
+            <button class="skill-filter-btn active font-display" data-filter="all">
+              <span class="filter-dot dot-all"></span> ALL SKILLS (6)
+            </button>
+            <button class="skill-filter-btn font-display" data-filter="ml">
+              <span class="filter-dot dot-ml"></span> MACHINE LEARNING &amp; ENSEMBLES
+            </button>
+            <button class="skill-filter-btn font-display" data-filter="data">
+              <span class="filter-dot dot-data"></span> PYTHON &amp; DATA
+            </button>
+            <button class="skill-filter-btn font-display" data-filter="db">
+              <span class="filter-dot dot-backend"></span> SQL &amp; DATABASES
+            </button>
+          </div>
+          <div class="skills-actions-group">
+            <button class="skill-action-btn font-display magnetic-btn" id="skills-flip-all-btn" title="Flip all cards to view details">
+              <span class="action-icon">↻</span>
+              <span class="action-label">FLIP ALL STATS</span>
+            </button>
+            <button class="skill-action-btn font-display magnetic-btn highlight-btn" id="skills-random-btn" title="Highlight a random card">
+              <span class="action-icon">⚡</span>
+              <span class="action-label">RANDOM CARD</span>
+            </button>
+          </div>
+        </div>
+
+        <p class="skills-hint font-display reveal-on-scroll reveal-fade-up">
+          <span>💡 Click any card to flip and view details &amp; practical applications.</span>
+        </p>
+
+        <!-- Spacious 3D Flipping & Tilting Tech Cards Grid (6 Core Skills) -->
+        <div class="skills-cards-grid font-display reveal-on-scroll reveal-stagger" id="skills-cards-grid">
+          
+          <!-- CARD 01: PYTHON -->
+          <div class="skill-card-3d-wrap" data-cat="data" data-color="tangerine">
+            <div class="skill-card-3d-inner">
+              <!-- FRONT -->
+              <div class="skill-face skill-face-front bg-tangerine-tint">
+                <div class="card-glare" aria-hidden="true"></div>
+                <div class="card-face-header">
+                  <span class="card-cat-badge badge-tangerine">CORE STACK</span>
+                  <span class="card-tech-icon">🐍</span>
+                </div>
+                <div class="card-face-body">
+                  <h3 class="card-tech-name">PYTHON</h3>
+                  <p class="card-tech-tagline">Core programming, OOP concepts, data processing logic, and ML pipeline scripts.</p>
+                  <div class="card-meter-box">
+                    <div class="meter-info-row">
+                      <span class="meter-name">MASTERY</span>
+                      <span class="meter-pct text-tangerine">95%</span>
+                    </div>
+                    <div class="meter-bar-track">
+                      <div class="meter-bar-fill fill-tangerine" style="width: 95%;"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-face-footer">
+                  <span class="card-metric-pill">Core Language</span>
+                  <button class="card-flip-btn" aria-label="Flip card for stats">FLIP STATS ↻</button>
+                </div>
+              </div>
+              <!-- BACK -->
+              <div class="skill-face skill-face-back bg-tangerine-tint">
+                <div class="card-face-header">
+                  <span class="card-cat-badge badge-tangerine">PYTHON DETAILS</span>
+                  <button class="card-flip-back-btn" aria-label="Flip back">✕ BACK</button>
+                </div>
+                <div class="card-face-body">
+                  <div class="specs-list">
+                    <div class="spec-row">
+                      <span class="spec-label">CONCEPTS:</span>
+                      <span class="spec-val">OOP, Functions, Comprehensions, Modular Scripts</span>
+                    </div>
+                    <div class="spec-row">
+                      <span class="spec-label">APPLIED IN:</span>
+                      <span class="spec-val text-tangerine">Data Cleaning Pipelines &amp; ML Modeling</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-face-footer">
+                  <span class="card-status-dot dot-active"></span>
+                  <span class="card-status-text">Production Verified</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CARD 02: SCIKIT-LEARN & ML -->
+          <div class="skill-card-3d-wrap" data-cat="ml" data-color="lavender">
+            <div class="skill-card-3d-inner">
+              <!-- FRONT -->
+              <div class="skill-face skill-face-front bg-lavender-tint">
+                <div class="card-glare" aria-hidden="true"></div>
+                <div class="card-face-header">
+                  <span class="card-cat-badge badge-lavender">CLASSICAL ML</span>
+                  <span class="card-tech-icon">⚙️</span>
+                </div>
+                <div class="card-face-body">
+                  <h3 class="card-tech-name">SCIKIT-LEARN</h3>
+                  <p class="card-tech-tagline">Supervised &amp; unsupervised models, cross-validation, and metrics evaluation.</p>
+                  <div class="card-meter-box">
+                    <div class="meter-info-row">
+                      <span class="meter-name">MASTERY</span>
+                      <span class="meter-pct text-lavender">92%</span>
+                    </div>
+                    <div class="meter-bar-track">
+                      <div class="meter-bar-fill fill-lavender" style="width: 92%;"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-face-footer">
+                  <span class="card-metric-pill">ML Modeling</span>
+                  <button class="card-flip-btn" aria-label="Flip card for stats">FLIP STATS ↻</button>
+                </div>
+              </div>
+              <!-- BACK -->
+              <div class="skill-face skill-face-back bg-lavender-tint">
+                <div class="card-face-header">
+                  <span class="card-cat-badge badge-lavender">ML DETAILS</span>
+                  <button class="card-flip-back-btn" aria-label="Flip back">✕ BACK</button>
+                </div>
+                <div class="card-face-body">
+                  <div class="specs-list">
+                    <div class="spec-row">
+                      <span class="spec-label">MODELS:</span>
+                      <span class="spec-val">Linear/Logistic Regression, Decision Trees, KNN, SVM</span>
+                    </div>
+                    <div class="spec-row">
+                      <span class="spec-label">EVALUATION:</span>
+                      <span class="spec-val">K-Fold CV, GridSearch, R², RMSE, Confusion Matrix</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-face-footer">
+                  <span class="card-status-dot dot-active"></span>
+                  <span class="card-status-text">Production Verified</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CARD 03: ENSEMBLE LEARNING & XGBOOST -->
+          <div class="skill-card-3d-wrap" data-cat="ml" data-color="mint">
+            <div class="skill-card-3d-inner">
+              <!-- FRONT -->
+              <div class="skill-face skill-face-front bg-mint-tint">
+                <div class="card-glare" aria-hidden="true"></div>
+                <div class="card-face-header">
+                  <span class="card-cat-badge badge-mint">ENSEMBLES</span>
+                  <span class="card-tech-icon">⚡</span>
+                </div>
+                <div class="card-face-body">
+                  <h3 class="card-tech-name">ENSEMBLE LEARNING</h3>
+                  <p class="card-tech-tagline">Bagging, Boosting, Random Forests, and XGBoost for high predictive accuracy.</p>
+                  <div class="card-meter-box">
+                    <div class="meter-info-row">
+                      <span class="meter-name">MASTERY</span>
+                      <span class="meter-pct text-mint">90%</span>
+                    </div>
+                    <div class="meter-bar-track">
+                      <div class="meter-bar-fill fill-mint" style="width: 90%;"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-face-footer">
+                  <span class="card-metric-pill">Bagging &amp; Boosting</span>
+                  <button class="card-flip-btn" aria-label="Flip card for stats">FLIP STATS ↻</button>
+                </div>
+              </div>
+              <!-- BACK -->
+              <div class="skill-face skill-face-back bg-mint-tint">
+                <div class="card-face-header">
+                  <span class="card-cat-badge badge-mint">ENSEMBLE SPECS</span>
+                  <button class="card-flip-back-btn" aria-label="Flip back">✕ BACK</button>
+                </div>
+                <div class="card-face-body">
+                  <div class="specs-list">
+                    <div class="spec-row">
+                      <span class="spec-label">METHODS:</span>
+                      <span class="spec-val">Random Forest, Gradient Boosting, XGBoost, Voting</span>
+                    </div>
+                    <div class="spec-row">
+                      <span class="spec-label">APPLIED IN:</span>
+                      <span class="spec-val text-mint">Ames Valuation Studio, Tabular Predictions</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-face-footer">
+                  <span class="card-status-dot dot-active"></span>
+                  <span class="card-status-text">Production Verified</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CARD 04: PANDAS & NUMPY -->
+          <div class="skill-card-3d-wrap" data-cat="data" data-color="yellow">
+            <div class="skill-card-3d-inner">
+              <!-- FRONT -->
+              <div class="skill-face skill-face-front bg-yellow-tint">
+                <div class="card-glare" aria-hidden="true"></div>
+                <div class="card-face-header">
+                  <span class="card-cat-badge badge-yellow">DATA FOUNDATION</span>
+                  <span class="card-tech-icon">📊</span>
+                </div>
+                <div class="card-face-body">
+                  <h3 class="card-tech-name">PANDAS &amp; NUMPY</h3>
+                  <p class="card-tech-tagline">DataFrame manipulation, data cleaning, slicing, aggregation &amp; vectorized array math.</p>
+                  <div class="card-meter-box">
+                    <div class="meter-info-row">
+                      <span class="meter-name">MASTERY</span>
+                      <span class="meter-pct text-yellow">94%</span>
+                    </div>
+                    <div class="meter-bar-track">
+                      <div class="meter-bar-fill fill-yellow" style="width: 94%;"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-face-footer">
+                  <span class="card-metric-pill">Data Wrangling</span>
+                  <button class="card-flip-btn" aria-label="Flip card for stats">FLIP STATS ↻</button>
+                </div>
+              </div>
+              <!-- BACK -->
+              <div class="skill-face skill-face-back bg-yellow-tint">
+                <div class="card-face-header">
+                  <span class="card-cat-badge badge-yellow">DATA SPECS</span>
+                  <button class="card-flip-back-btn" aria-label="Flip back">✕ BACK</button>
+                </div>
+                <div class="card-face-body">
+                  <div class="specs-list">
+                    <div class="spec-row">
+                      <span class="spec-label">OPERATIONS:</span>
+                      <span class="spec-val">GroupBy, Merges, Pivoting, Vectorized Array Ops</span>
+                    </div>
+                    <div class="spec-row">
+                      <span class="spec-label">HANDLING:</span>
+                      <span class="spec-val text-yellow">Missing Values, Deduplication, Type Casting</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-face-footer">
+                  <span class="card-status-dot dot-active"></span>
+                  <span class="card-status-text">Production Verified</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CARD 05: DATA VISUALIZATION (MATPLOTLIB & SEABORN) -->
+          <div class="skill-card-3d-wrap" data-cat="data" data-color="lavender">
+            <div class="skill-card-3d-inner">
+              <!-- FRONT -->
+              <div class="skill-face skill-face-front bg-lavender-tint">
+                <div class="card-glare" aria-hidden="true"></div>
+                <div class="card-face-header">
+                  <span class="card-cat-badge badge-lavender">VISUAL EDA</span>
+                  <span class="card-tech-icon">📈</span>
+                </div>
+                <div class="card-face-body">
+                  <h3 class="card-tech-name">DATA VISUALIZATION</h3>
+                  <p class="card-tech-tagline">Matplotlib &amp; Seaborn plotting, statistical distributions, heatmaps &amp; ML insight graphs.</p>
+                  <div class="card-meter-box">
+                    <div class="meter-info-row">
+                      <span class="meter-name">MASTERY</span>
+                      <span class="meter-pct text-lavender">91%</span>
+                    </div>
+                    <div class="meter-bar-track">
+                      <div class="meter-bar-fill fill-lavender" style="width: 91%;"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-face-footer">
+                  <span class="card-metric-pill">Matplotlib &amp; Seaborn</span>
+                  <button class="card-flip-btn" aria-label="Flip card for stats">FLIP STATS ↻</button>
+                </div>
+              </div>
+              <!-- BACK -->
+              <div class="skill-face skill-face-back bg-lavender-tint">
+                <div class="card-face-header">
+                  <span class="card-cat-badge badge-lavender">VIZ SPECS</span>
+                  <button class="card-flip-back-btn" aria-label="Flip back">✕ BACK</button>
+                </div>
+                <div class="card-face-body">
+                  <div class="specs-list">
+                    <div class="spec-row">
+                      <span class="spec-label">CHARTS:</span>
+                      <span class="spec-val">Histograms, Correlation Heatmaps, Boxplots, Scatter</span>
+                    </div>
+                    <div class="spec-row">
+                      <span class="spec-label">APPLIED IN:</span>
+                      <span class="spec-val text-lavender">Exploratory Data Analysis (EDA) &amp; Reports</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-face-footer">
+                  <span class="card-status-dot dot-active"></span>
+                  <span class="card-status-text">Production Verified</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CARD 06: SQL & DATABASES -->
+          <div class="skill-card-3d-wrap" data-cat="db" data-color="tangerine">
+            <div class="skill-card-3d-inner">
+              <!-- FRONT -->
+              <div class="skill-face skill-face-front bg-tangerine-tint">
+                <div class="card-glare" aria-hidden="true"></div>
+                <div class="card-face-header">
+                  <span class="card-cat-badge badge-tangerine">DATABASES</span>
+                  <span class="card-tech-icon">🗄️</span>
+                </div>
+                <div class="card-face-body">
+                  <h3 class="card-tech-name">SQL &amp; DATABASES</h3>
+                  <p class="card-tech-tagline">Relational queries, multi-table joins, aggregations &amp; structured data extraction.</p>
+                  <div class="card-meter-box">
+                    <div class="meter-info-row">
+                      <span class="meter-name">MASTERY</span>
+                      <span class="meter-pct text-tangerine">88%</span>
+                    </div>
+                    <div class="meter-bar-track">
+                      <div class="meter-bar-fill fill-tangerine" style="width: 88%;"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-face-footer">
+                  <span class="card-metric-pill">Data Queries</span>
+                  <button class="card-flip-btn" aria-label="Flip card for stats">FLIP STATS ↻</button>
+                </div>
+              </div>
+              <!-- BACK -->
+              <div class="skill-face skill-face-back bg-tangerine-tint">
+                <div class="card-face-header">
+                  <span class="card-cat-badge badge-tangerine">SQL SPECS</span>
+                  <button class="card-flip-back-btn" aria-label="Flip back">✕ BACK</button>
+                </div>
+                <div class="card-face-body">
+                  <div class="specs-list">
+                    <div class="spec-row">
+                      <span class="spec-label">QUERIES:</span>
+                      <span class="spec-val">SELECT, WHERE, GROUP BY, INNER/LEFT JOIN</span>
+                    </div>
+                    <div class="spec-row">
+                      <span class="spec-label">AGGREGATIONS:</span>
+                      <span class="spec-val text-tangerine">COUNT, SUM, AVG, Subqueries</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-face-footer">
+                  <span class="card-status-dot dot-active"></span>
+                  <span class="card-status-text">Production Verified</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Sleek Supporting Stack & Tools Pill Strip -->
+        <div class="skills-supporting-strip font-display reveal-on-scroll reveal-fade-up">
+          <span class="strip-label">SUPPORTING TOOLS &amp; WORKFLOWS:</span>
+          <div class="strip-pills">
+            <span class="strip-pill">🐙 Git &amp; GitHub</span>
+            <span class="strip-pill">📓 Jupyter Notebooks</span>
+            <span class="strip-pill">🚀 FastAPI Basics</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 03 — THINGS I'VE BUILT (PROJECTS) ==================== -->
+    <section id="work" class="work-section scroll-section" data-section-name="work">
+      <div class="page-container">
+        
+        <div class="section-tag-header font-display reveal-on-scroll reveal-fade-up">
+          <span class="sec-number">03</span>
+          <h2 class="sec-headline">THINGS I'VE BUILT.</h2>
+        </div>
+
+        <div class="projects-gallery-list">
+
+          <!-- PROJECT 01: Ames Valuation Studio (Live on Render) -->
+          <article class="project-poster-item layout-left-art project-tilt-card reveal-on-scroll reveal-fade-up" data-bg="mint">
+            <!-- Left Poster Artwork: Ames Valuation Studio Live Mockup Card -->
+            <div class="project-artwork-frame bg-mint-tint">
+              <div class="card-glare-sheen" aria-hidden="true"></div>
+              <div class="artwork-ames-studio">
+                <div class="ames-top-bar font-display">
+                  <span class="ames-live-dot"></span>
+                  <span class="ames-brand-title">AMES VALUATION STUDIO</span>
+                  <span class="ames-badge-live">LIVE ON RENDER</span>
+                </div>
+                
+                <div class="ames-hero-card bg-white">
+                  <span class="ames-card-kicker font-display">ESTIMATED PROPERTY VALUE</span>
+                  <div class="ames-price-display font-display">$248,500</div>
+                  <span class="ames-sub-note font-display">10,000 HOMES &bull; 79 ARCHITECTURAL FEATURES</span>
+                </div>
+
+                <div class="ames-metrics-row font-display">
+                  <span class="ames-metric-tag bg-white">GrLivArea &times; SalePrice</span>
+                  <span class="ames-metric-tag bg-yellow">POST /predict</span>
+                  <span class="ames-metric-tag bg-tangerine text-white">XGBOOST</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Content -->
+            <div class="project-content-block">
+              <div class="project-index-pill font-display bg-mint">PROJECT 01 &bull; ML REGRESSION &bull; LIVE</div>
+              <h3 class="project-title font-display">AMES VALUATION STUDIO</h3>
+              <p class="project-subtitle-label font-display text-muted">Property Valuation &bull; Real Estate ML Model</p>
+              <p class="project-description">
+                A hands-on machine learning project predicting residential property valuations using regression and XGBoost ensemble algorithms on tabular housing data, complete with exploratory data analysis and live interactive prediction.
+              </p>
+              <div class="project-tech-tags font-display">
+                <span>Python</span>
+                <span>XGBoost</span>
+                <span>Scikit-learn</span>
+                <span>Pandas</span>
+                <span>Matplotlib</span>
+                <span>FastAPI</span>
+                <span>Render</span>
+              </div>
+              <div class="project-cta-row font-display">
+                <a href="https://ames-valuation-studio.onrender.com/" target="_blank" rel="noopener noreferrer" class="btn-poster-primary magnetic-btn">
+                  <span>LAUNCH APP &nearr;</span>
+                </a>
+                <a href="https://github.com/fenilsojitra242-code" target="_blank" rel="noopener noreferrer" class="btn-poster-secondary magnetic-btn">
+                  <span>GITHUB &nearr;</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+
+          <!-- PROJECT 02: LinkArmor (Live on Render & GitHub) -->
+          <article class="project-poster-item layout-right-art project-tilt-card reveal-on-scroll reveal-fade-up" data-bg="lavender">
+            <!-- Left Content -->
+            <div class="project-content-block">
+              <div class="project-index-pill font-display bg-lavender text-black">PROJECT 02 &bull; CYBER-ML &bull; LIVE</div>
+              <h3 class="project-title font-display">LINKARMOR</h3>
+              <p class="project-subtitle-label font-display text-muted">Malicious &amp; Phishing URL Verification Engine &bull; Multi-Model Defense</p>
+              <p class="project-description">
+                A real-time cybersecurity intelligence platform powered by 5 supervised machine learning models (Stacking Classifier, XGBoost, Random Forest, Soft Voting, and Logistic Regression). Extracts 27 lexical and structural URL tokens on the fly, delivering forensic risk scoring with 99.41% accuracy on 90,000+ benchmarked specimens.
+              </p>
+              <div class="project-tech-tags font-display">
+                <span>Python</span>
+                <span>Stacking Classifier</span>
+                <span>XGBoost</span>
+                <span>Random Forest</span>
+                <span>Scikit-learn</span>
+                <span>FastAPI</span>
+                <span>Pandas</span>
+                <span>Render</span>
+              </div>
+              <div class="project-cta-row font-display">
+                <a href="https://linkarmor-1.onrender.com/" target="_blank" rel="noopener noreferrer" class="btn-poster-primary magnetic-btn">
+                  <span>LAUNCH APP &nearr;</span>
+                </a>
+                <a href="https://github.com/fenilsojitra242-code/linkarmor" target="_blank" rel="noopener noreferrer" class="btn-poster-secondary magnetic-btn">
+                  <span>GITHUB &nearr;</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Right Poster Artwork: LinkArmor Live Forensic Checkpoint Card -->
+            <div class="project-artwork-frame bg-lavender-tint">
+              <div class="card-glare-sheen" aria-hidden="true"></div>
+              <div class="artwork-linkarmor-studio">
+                <div class="linkarmor-top-bar font-display">
+                  <span class="linkarmor-live-dot"></span>
+                  <span class="linkarmor-brand-title">// LINKARMOR CHECKPOINT</span>
+                  <span class="linkarmor-badge-live">LIVE ON RENDER</span>
+                </div>
+                
+                <div class="linkarmor-hero-card bg-white">
+                  <span class="linkarmor-card-kicker font-display">FORENSIC CLEARANCE ACCURACY</span>
+                  <div class="linkarmor-verdict-display font-display">
+                    <span class="linkarmor-accuracy-display">99.41%</span>
+                    <span class="linkarmor-badge-status">VERIFIED</span>
+                  </div>
+                  <span class="linkarmor-sub-note font-display">90,036 TEST SPECIMENS &bull; 0.9871 F1-SCORE</span>
+                  
+                  <div class="linkarmor-specimen-strip">
+                    <span class="text-muted">TOKEN PARSER:</span>
+                    <span class="font-bold text-tangerine">27 LEXICAL SIGNALS</span>
+                  </div>
+                </div>
+
+                <div class="linkarmor-metrics-row font-display">
+                  <span class="linkarmor-metric-tag bg-white">5 / 5 CONSENSUS</span>
+                  <span class="linkarmor-metric-tag bg-mint">ROC-AUC 0.9981</span>
+                  <span class="linkarmor-metric-tag bg-tangerine text-white">STACKING ML</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 04 — EXPERIENCE & EDUCATION ==================== -->
+    <section id="experience" class="journey-section scroll-section" data-section-name="experience">
+      <div class="page-container">
+        
+        <div class="section-tag-header font-display reveal-on-scroll reveal-fade-up">
+          <span class="sec-number">04</span>
+          <h2 class="sec-headline">EXPERIENCE &amp; EDUCATION.</h2>
+        </div>
+
+        <p class="journey-intro-subtitle font-display reveal-on-scroll reveal-fade-up">
+          Hands-on professional engineering experience developing Python backend applications and machine learning solutions, backed by academic IT education.
+        </p>
+
+        <!-- Experience & Education Grid -->
+        <div class="journey-timeline-grid font-display reveal-on-scroll reveal-stagger">
+
+          <!-- CARD 1: Professional Experience at Codegrin Technology -->
+          <div class="journey-card reveal-on-scroll reveal-fade-up" style="grid-column: 1 / -1;">
+            <div class="journey-card-top">
+              <span class="journey-year-badge bg-tangerine text-white">MAR 2026 — AUG 2026</span>
+              <span class="journey-type-tag">WORK EXPERIENCE</span>
+            </div>
+            <div class="journey-card-body">
+              <h3 class="journey-title">PYTHON DEVELOPER</h3>
+              <p class="journey-institution text-tangerine">Codegrin Technology</p>
+              <p class="journey-desc">
+                Developed and maintained Python applications and backend components for internal software projects. Cleaned, transformed, validated, and preprocessed datasets with Pandas and NumPy. Built and evaluated machine learning models (Random Forest, XGBoost, LightGBM, Bagging, Boosting) using Scikit-learn, performed EDA with Matplotlib, and integrated REST APIs with relational databases (MySQL).
+              </p>
+            </div>
+            <div class="journey-tech-pills">
+              <span class="journey-pill">Python</span>
+              <span class="journey-pill">Scikit-Learn</span>
+              <span class="journey-pill">Random Forest</span>
+              <span class="journey-pill">XGBoost &amp; LightGBM</span>
+              <span class="journey-pill">Pandas &amp; NumPy</span>
+              <span class="journey-pill">REST APIs</span>
+              <span class="journey-pill">MySQL</span>
+            </div>
+          </div>
+
+          <!-- CARD 2: B.Sc. IT Degree -->
+          <div class="journey-card reveal-on-scroll reveal-fade-up">
+            <div class="journey-card-top">
+              <span class="journey-year-badge bg-mint text-black">2023 — 2026</span>
+              <span class="journey-type-tag">CGPA: 8.12</span>
+            </div>
+            <div class="journey-card-body">
+              <h3 class="journey-title">B.SC. IN INFORMATION TECHNOLOGY</h3>
+              <p class="journey-institution text-mint-dark">SSSDIIT College &bull; Junagadh, Gujarat</p>
+              <p class="journey-desc">
+                Undergraduate degree in Information Technology with an 8.12 CGPA. Core specialization in Object-Oriented Programming, Relational Databases (SQL), Data Structures, and Software Development.
+              </p>
+            </div>
+            <div class="journey-tech-pills">
+              <span class="journey-pill">B.Sc. IT</span>
+              <span class="journey-pill">CGPA: 8.12</span>
+              <span class="journey-pill">OOP Concepts</span>
+              <span class="journey-pill">DBMS &amp; SQL</span>
+              <span class="journey-pill">Data Structures</span>
+            </div>
+          </div>
+
+          <!-- CARD 3: Higher Secondary Schooling (12th Science - PCM) -->
+          <div class="journey-card reveal-on-scroll reveal-fade-up">
+            <div class="journey-card-top">
+              <span class="journey-year-badge bg-lavender text-black">2021 — 2023</span>
+              <span class="journey-type-tag">12TH SCIENCE (PCM)</span>
+            </div>
+            <div class="journey-card-body">
+              <h3 class="journey-title">HIGHER SECONDARY (12TH SCIENCE)</h3>
+              <p class="journey-institution text-lavender-dark">Apollo International School</p>
+              <p class="journey-desc">
+                Completed Higher Secondary Education in the Science stream with Physics, Chemistry, and Mathematics (PCM), building strong quantitative reasoning, analytical problem-solving, and foundational mathematical principles.
+              </p>
+            </div>
+            <div class="journey-tech-pills">
+              <span class="journey-pill">12th Science</span>
+              <span class="journey-pill">Physics &bull; Chem &bull; Math</span>
+              <span class="journey-pill">Quantitative Logic</span>
+              <span class="journey-pill">Analytical Math</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== RESUME GIANT CTA ==================== -->
+    <section class="resume-cta-section">
+      <div class="page-container">
+        
+        <div class="resume-giant-card bg-tangerine reveal-on-scroll reveal-scale-up">
+          <div class="resume-text-side">
+            <h2 class="resume-title font-display">
+              CURIOUS?<br>
+              TAKE A LOOK<br>
+              AT MY RESUME.
+            </h2>
+            <p class="resume-subtitle font-display">
+              Download the complete curriculum vitae detailing model benchmarks, code repositories, and technical background.
+            </p>
+          </div>
+
+          <div class="resume-action-side">
+            <a href="#contact" class="btn-resume-black font-display magnetic-btn" id="resume-download-btn">
+              <span>DOWNLOAD RESUME &darr;</span>
+              <span class="resume-arrow-icon">&nearr;</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== CONTACT SECTION (CLEAN SINGLE FORM) ==================== -->
+    <section id="contact" class="contact-section scroll-section" data-section-name="contact">
+      <div class="page-container text-center">
+        
+        <div class="contact-header-block reveal-on-scroll reveal-fade-up">
+          <div class="contact-status-pill font-display">
+            <span class="status-pulse-dot"></span>
+            <span>OPEN FOR COLLABORATION &bull; FEEDBACK &bull; OPPORTUNITIES</span>
+          </div>
+
+          <h2 class="contact-headline font-display">
+            LET'S<br>
+            MAKE<br>
+            <span class="text-mint">SOMETHING.</span>
+          </h2>
+
+          <p class="contact-intro font-display">
+            Have a project in mind, feedback on my work, or want to discuss machine learning opportunities? Drop a message below!
+          </p>
+        </div>
+
+        <!-- Centered Single Form Container -->
+        <div class="contact-centered-wrapper font-display reveal-on-scroll reveal-scale-up">
+          
+          <div class="contact-form-card">
+            <div class="card-top-bar">
+              <span class="card-bar-title font-display">✉️ GET IN TOUCH / SEND FEEDBACK</span>
+              <span class="card-bar-tag bg-yellow text-black font-display">DIRECT TO INBOX</span>
+            </div>
+
+            <form id="portfolio-contact-form" class="contact-form-inner" action="https://formsubmit.co/fenilsojitra242@gmail.com" method="POST">
+              <!-- FormSubmit Direct Delivery Config -->
+              <input type="hidden" name="_captcha" value="false">
+              <input type="hidden" name="_template" value="table">
+              <input type="hidden" name="_subject" value="🚀 New Message/Feedback for Fenil Sojitra!">
+
+              <div class="form-group-row">
+                <div class="form-group">
+                  <label for="contact-name" class="form-label">YOUR NAME</label>
+                  <input type="text" id="contact-name" name="name" class="form-input" placeholder="Enter your name" required autocomplete="name" />
+                </div>
+                <div class="form-group">
+                  <label for="contact-email" class="form-label">YOUR EMAIL</label>
+                  <input type="email" id="contact-email" name="email" class="form-input" placeholder="Enter your email" required autocomplete="email" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-message" class="form-label">YOUR FEEDBACK / MESSAGE</label>
+                <textarea id="contact-message" name="feedback" class="form-input form-textarea" rows="5" placeholder="Enter your message or feedback here..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn-contact-submit magnetic-btn" id="contact-submit-btn">
+                <span id="submit-btn-text">SEND MESSAGE &nearr;</span>
+              </button>
+
+              <div id="contact-form-status" class="contact-status-feedback hidden"></div>
+            </form>
+          </div>
+
+          <!-- Direct Social Links Strip -->
+          <div class="contact-social-strip font-display">
+            <a href="https://www.linkedin.com/in/fenil-sojitra-52aa03330/" target="_blank" rel="noopener noreferrer" class="contact-social-btn magnetic-btn">
+              <span>💼 LINKEDIN &nearr;</span>
+            </a>
+            <a href="https://github.com/fenilsojitra242-code" target="_blank" rel="noopener noreferrer" class="contact-social-btn magnetic-btn">
+              <span>🐙 GITHUB &nearr;</span>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="creative-footer font-display">
+    <div class="page-container">
+      <div class="footer-top-row">
+        <span class="footer-fs">FS</span>
+        <span class="footer-name">FENIL SOJITRA</span>
+        <span class="footer-role">PYTHON / AI / ML</span>
+      </div>
+      <div class="footer-bottom-row">
+        <span>&copy; 2026 &mdash; BUILT WITH CURIOSITY</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Interactive JavaScript Engine -->
+  <script src="js/main.js"></script>
+</body>
+</html>
