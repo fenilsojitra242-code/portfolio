@@ -17,24 +17,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700;800;900&display=swap" rel="stylesheet">
 
-  <!-- Google Identity Services (Google One-Tap SDK) -->
-  <script src="https://accounts.google.com/gsi/client" async defer></script>
-
   <!-- Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="creative-personality-body">
-
-  <!-- Google Identity Services One-Tap Setup -->
-  <div id="g_id_onload"
-       data-client_id="YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com"
-       data-context="signin"
-       data-ux_mode="popup"
-       data-callback="handleGoogleCredentialResponse"
-       data-auto_prompt="true"
-       data-auto_select="false"
-       data-close_on_tap_outside="true">
-  </div>
 
   <!-- Interactive AI Neural Constellation Background Canvas (Site-wide) -->
   <canvas id="neural-canvas" class="site-neural-canvas" aria-hidden="true"></canvas>
