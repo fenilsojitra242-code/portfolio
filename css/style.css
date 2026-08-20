@@ -406,6 +406,15 @@ body.no-scroll {
   color: var(--accent-tangerine);
 }
 
+.drawer-feedback-btn {
+  background: transparent;
+  font-family: var(--font-display);
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  border: 1.5px solid transparent;
+}
+
 .drawer-link:active,
 .drawer-link:hover {
   background-color: var(--tint-yellow);

@@ -1387,6 +1387,19 @@ function initExitIntentFeedbackModal() {
     }
   });
 
+  // Mobile Drawer Direct Trigger Button
+  const drawerFeedbackBtn = document.getElementById('drawer-feedback-link');
+  if (drawerFeedbackBtn) {
+    drawerFeedbackBtn.addEventListener('click', () => {
+      const drawer = document.getElementById('mobile-drawer');
+      const toggleBtn = document.getElementById('mobile-toggle');
+      if (drawer) drawer.classList.remove('open');
+      if (toggleBtn) toggleBtn.classList.remove('active');
+      document.body.classList.remove('no-scroll');
+      setTimeout(openModal, 200);
+    });
+  }
+
   // Exit-Intent Mouseleave Detection (Desktop)
   let exitIntentTriggered = false;
   document.addEventListener('mouseleave', (e) => {
@@ -1401,7 +1414,49 @@ function initExitIntentFeedbackModal() {
     }
   });
 
-  // Timed Engagement Trigger (After 40 seconds on page)
+  // Mobile Exit-Intent & Scroll Depth Detection (Mobile / Tablet)
+  let lastScrollY = window.scrollY;
+  let maxScrollDepth = 0;
+  let scrollDepthTimeout;
+
+  window.addEventListener('scroll', () => {
+    const currentScrollY = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = docHeight > 0 ? (currentScrollY / docHeight) * 100 : 0;
+
+    if (currentScrollY > maxScrollDepth) {
+      maxScrollDepth = currentScrollY;
+    }
+
+    if (exitIntentTriggered) return;
+    if (sessionStorage.getItem('fs_feedback_given') === 'true') return;
+    if (sessionStorage.getItem('fs_feedback_dismissed')) return;
+
+    // A. Fast Scroll Up Exit Intent (User scrolled deep into portfolio, then rapidly scrolled back up to exit)
+    const scrollDelta = lastScrollY - currentScrollY;
+    if (maxScrollDepth > 600 && scrollDelta > 130 && currentScrollY < 350) {
+      exitIntentTriggered = true;
+      openModal();
+    }
+
+    // B. Scroll Depth Trigger (User explored 75% of portfolio and paused)
+    if (scrollPercent >= 75) {
+      clearTimeout(scrollDepthTimeout);
+      scrollDepthTimeout = setTimeout(() => {
+        if (!exitIntentTriggered && !sessionStorage.getItem('fs_feedback_given') && !sessionStorage.getItem('fs_feedback_dismissed')) {
+          exitIntentTriggered = true;
+          openModal();
+        }
+      }, 2400);
+    }
+
+    lastScrollY = currentScrollY;
+  }, { passive: true });
+
+  // Timed Engagement Trigger (28s on mobile, 40s on desktop)
+  const isMobile = window.innerWidth < 768;
+  const timeoutDuration = isMobile ? 28000 : 40000;
+
   setTimeout(() => {
     if (exitIntentTriggered) return;
     if (sessionStorage.getItem('fs_feedback_given') === 'true') return;
@@ -1410,7 +1465,7 @@ function initExitIntentFeedbackModal() {
       exitIntentTriggered = true;
       openModal();
     }
-  }, 40000);
+  }, timeoutDuration);
 
   // Star Rating Interaction
   function updateStars(rating) {
