@@ -1596,10 +1596,14 @@ window.handleGoogleCredentialResponse = async function(response) {
   const currentRating = document.getElementById('feedback-rating-val')?.value || '5';
   const currentTags = document.getElementById('feedback-tags-val')?.value || 'General Portfolio Visit & Positive Review';
 
-  // 2. Automatically dispatch visitor alert directly to Fenil's inbox
+  // 2. Automatically dispatch visitor alert to Fenil & send automated Thank You email to visitor
+  const thankYouMessage = `Hi ${userName},\n\nThank you so much for visiting my portfolio and taking the time to explore my projects! I really appreciate your support.\n\nIf you have any feedback, would like to collaborate on machine learning / Python projects, or check out my code repositories, feel free to reply directly to this email or connect on LinkedIn: https://www.linkedin.com/in/fenil-sojitra-52aa03330/\n\nWarm regards,\nFenil Sojitra\nPython Developer & AI/ML Explorer`;
+
   const alertData = new FormData();
   alertData.append('_captcha', 'false');
   alertData.append('_template', 'table');
+  alertData.append('email', userEmail); // FormSubmit uses 'email' to deliver the autoresponder
+  alertData.append('_autoresponse', thankYouMessage);
   alertData.append('_subject', `🔔 Google Verified Visitor Alert: ${userName} (${userEmail}) visited your portfolio!`);
   alertData.append('Visitor Google Name', userName);
   alertData.append('Visitor Gmail Address', userEmail);
