@@ -23,6 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initNavbarScroll();
   initMobileDrawer();
   initContactForm();
+  initExitIntentFeedbackModal();
+  initGoogleIdentity();
 
   // Scroll Animations Suite
   initScrollProgressBar();
@@ -1316,4 +1318,337 @@ function initContactForm() {
       if (submitBtn) submitBtn.disabled = false;
     }
   });
+}
+
+/* ==========================================================================
+   19. EXIT INTENT & QUICK FEEDBACK MODAL
+   ========================================================================== */
+function initExitIntentFeedbackModal() {
+  const overlay = document.getElementById('feedback-modal-overlay');
+  const closeBtn = document.getElementById('feedback-modal-close');
+  const dismissBtn = document.getElementById('feedback-dismiss-btn');
+  const successCloseBtn = document.getElementById('success-close-btn');
+  const form = document.getElementById('exit-feedback-form');
+  const formState = document.getElementById('feedback-form-state');
+  const successState = document.getElementById('feedback-success-state');
+  const errorMsg = document.getElementById('feedback-error-msg');
+  const submitBtn = document.getElementById('exit-feedback-submit-btn');
+  const submitBtnText = document.getElementById('feedback-btn-text');
+
+  const starBtns = document.querySelectorAll('.star-btn');
+  const ratingInput = document.getElementById('feedback-rating-val');
+  const ratingCaption = document.getElementById('rating-dynamic-caption');
+
+  if (!overlay || !form) return;
+
+  let currentRating = 5;
+  const ratingDetails = {
+    1: { emoji: '💡', text: '1.0 / 5.0 — Needs improvement' },
+    2: { emoji: '👍', text: '2.0 / 5.0 — Decent start, can be better' },
+    3: { emoji: '😊', text: '3.0 / 5.0 — Good work & projects' },
+    4: { emoji: '🚀', text: '4.0 / 5.0 — Great portfolio & aesthetics!' },
+    5: { emoji: '🔥', text: '5.0 / 5.0 — Outstanding & creative!' }
+  };
+
+  // Open / Close Helpers
+  function openModal() {
+    overlay.classList.add('open');
+    document.body.classList.add('no-scroll');
+    overlay.setAttribute('aria-hidden', 'false');
+  }
+
+  function closeModal() {
+    overlay.classList.remove('open');
+    document.body.classList.remove('no-scroll');
+    overlay.setAttribute('aria-hidden', 'true');
+  }
+
+  function markDismissed() {
+    sessionStorage.setItem('fs_feedback_dismissed', Date.now().toString());
+    closeModal();
+  }
+
+  // Close triggers
+  if (closeBtn) closeBtn.addEventListener('click', markDismissed);
+  if (dismissBtn) dismissBtn.addEventListener('click', markDismissed);
+  if (successCloseBtn) successCloseBtn.addEventListener('click', closeModal);
+
+  // Close on backdrop click
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) {
+      markDismissed();
+    }
+  });
+
+  // Close on ESC key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && overlay.classList.contains('open')) {
+      markDismissed();
+    }
+  });
+
+  // Exit-Intent Mouseleave Detection (Desktop)
+  let exitIntentTriggered = false;
+  document.addEventListener('mouseleave', (e) => {
+    if (exitIntentTriggered) return;
+    if (sessionStorage.getItem('fs_feedback_given') === 'true') return;
+    if (sessionStorage.getItem('fs_feedback_dismissed')) return;
+
+    // Detect exit intent near top of window
+    if (e.clientY <= 15) {
+      exitIntentTriggered = true;
+      openModal();
+    }
+  });
+
+  // Timed Engagement Trigger (After 40 seconds on page)
+  setTimeout(() => {
+    if (exitIntentTriggered) return;
+    if (sessionStorage.getItem('fs_feedback_given') === 'true') return;
+    if (sessionStorage.getItem('fs_feedback_dismissed')) return;
+    if (document.visibilityState === 'visible') {
+      exitIntentTriggered = true;
+      openModal();
+    }
+  }, 40000);
+
+  // Star Rating Interaction
+  function updateStars(rating) {
+    starBtns.forEach((btn) => {
+      const r = parseInt(btn.getAttribute('data-rating') || '1', 10);
+      if (r <= rating) {
+        btn.classList.add('active');
+      } else {
+        btn.classList.remove('active');
+      }
+    });
+
+    if (ratingCaption && ratingDetails[rating]) {
+      ratingCaption.innerHTML = `<span class="rating-emoji">${ratingDetails[rating].emoji}</span> <span class="rating-caption-text">${ratingDetails[rating].text}</span>`;
+    }
+  }
+
+  starBtns.forEach((btn) => {
+    const r = parseInt(btn.getAttribute('data-rating') || '5', 10);
+
+    btn.addEventListener('mouseenter', () => {
+      updateStars(r);
+    });
+
+    btn.addEventListener('click', () => {
+      currentRating = r;
+      if (ratingInput) ratingInput.value = r.toString();
+      updateStars(currentRating);
+    });
+  });
+
+  const starsContainer = document.getElementById('rating-stars-container');
+  if (starsContainer) {
+    starsContainer.addEventListener('mouseleave', () => {
+      updateStars(currentRating);
+    });
+  }
+
+  // Confetti Burst Trigger on Success
+  function triggerFeedbackConfetti() {
+    const colors = ['#FF6B35', '#8FE3CF', '#B8A1FF', '#FFD166', '#181818'];
+    const shapes = ['✦', '★', '●', '▲', '◆'];
+    const card = document.querySelector('.feedback-modal-card');
+    if (!card) return;
+
+    for (let i = 0; i < 28; i++) {
+      const particle = document.createElement('span');
+      particle.className = 'sparkle-particle font-display';
+      particle.textContent = shapes[Math.floor(Math.random() * shapes.length)];
+      particle.style.color = colors[Math.floor(Math.random() * colors.length)];
+      particle.style.fontSize = `${Math.floor(Math.random() * 10 + 12)}px`;
+      particle.style.position = 'absolute';
+      particle.style.left = '50%';
+      particle.style.top = '35%';
+      particle.style.zIndex = '999';
+
+      const xOffset = (Math.random() - 0.5) * 260;
+      const yOffset = (Math.random() - 0.5) * 220;
+      const rot = (Math.random() - 0.5) * 180;
+
+      particle.style.setProperty('--sparkle-x', `${xOffset}px`);
+      particle.style.setProperty('--sparkle-y', `${yOffset}px`);
+      particle.style.setProperty('--sparkle-rot', `${rot}deg`);
+
+      card.appendChild(particle);
+      setTimeout(() => particle.remove(), 1200);
+    }
+  }
+
+  // Asynchronous Form Submission
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    if (errorMsg) {
+      errorMsg.classList.add('hidden');
+      errorMsg.textContent = '';
+    }
+
+    if (submitBtn) submitBtn.disabled = true;
+    if (submitBtnText) submitBtnText.textContent = 'SUBMITTING... ⏳';
+
+    const formData = new FormData(form);
+    formData.append('_subject', `🌟 New Star Rating: ${currentRating}/5 Stars received on Portfolio!`);
+    formData.append('Rating Score', `${currentRating} / 5 Stars`);
+    formData.append('Rating Sentiment', ratingDetails[currentRating]?.text || 'Positive');
+    formData.append('Submission Time', new Date().toLocaleString());
+    formData.append('Portfolio URL', window.location.href);
+
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/3eb2b23ef7c6c3f4bb497e8aa2fcb956', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json'
+        },
+        body: formData
+      });
+
+      if (response.ok) {
+        sessionStorage.setItem('fs_feedback_given', 'true');
+        if (formState) formState.classList.add('hidden');
+        if (formState) formState.classList.remove('active');
+        if (successState) {
+          successState.classList.remove('hidden');
+          successState.classList.add('active');
+        }
+        triggerFeedbackConfetti();
+      } else {
+        throw new Error('Feedback submission failed');
+      }
+    } catch (err) {
+      if (errorMsg) {
+        errorMsg.textContent = '⚠️ Could not send feedback automatically. Please try again or drop a message below!';
+        errorMsg.classList.remove('hidden');
+      }
+      if (submitBtnText) submitBtnText.textContent = 'RETRY SUBMISSION 🚀';
+    } finally {
+      if (submitBtn) submitBtn.disabled = false;
+    }
+  });
+}
+
+/* ==========================================================================
+   20. GOOGLE IDENTITY SERVICES (ONE-TAP & 1-CLICK VERIFY ALERT)
+   ========================================================================== */
+
+/**
+ * Safely decodes Google JWT credential token to extract verified name, email & avatar.
+ */
+function parseGoogleJwt(token) {
+  try {
+    const base64Url = token.split('.')[1];
+    const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    const jsonPayload = decodeURIComponent(
+      atob(base64)
+        .split('')
+        .map((c) => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2))
+        .join('')
+    );
+    return JSON.parse(jsonPayload);
+  } catch (err) {
+    console.warn('Could not decode Google JWT:', err);
+    return null;
+  }
+}
+
+/**
+ * Global Callback for Google One-Tap & Sign-In prompt.
+ * Automatically dispatches visitor details to Fenil's inbox.
+ */
+window.handleGoogleCredentialResponse = async function(response) {
+  if (!response || !response.credential) return;
+
+  const payload = parseGoogleJwt(response.credential);
+  if (!payload) return;
+
+  const userName = payload.name || payload.given_name || 'Google Visitor';
+  const userEmail = payload.email || '';
+  const userAvatar = payload.picture || '';
+
+  // 1. Update UI Elements with verified credentials
+  const avatarImg = document.getElementById('google-user-avatar');
+  const nameLabel = document.getElementById('google-user-name');
+  const emailLabel = document.getElementById('google-user-email');
+  const userPill = document.getElementById('google-signedin-pill');
+  const googleTriggerBtn = document.getElementById('btn-google-modal-trigger');
+
+  if (avatarImg && userAvatar) avatarImg.src = userAvatar;
+  if (nameLabel) nameLabel.textContent = userName;
+  if (emailLabel) emailLabel.textContent = userEmail;
+  if (userPill) userPill.classList.remove('hidden');
+  if (googleTriggerBtn) googleTriggerBtn.style.display = 'none';
+
+  // Pre-fill modal inputs and contact inputs
+  const feedbackEmail = document.getElementById('feedback-email-input');
+  const contactName = document.getElementById('contact-name');
+  const contactEmail = document.getElementById('contact-email');
+
+  if (feedbackEmail) feedbackEmail.value = userEmail;
+  if (contactName) contactName.value = userName;
+  if (contactEmail) contactEmail.value = userEmail;
+
+  // Retrieve current rating and tags
+  const currentRating = document.getElementById('feedback-rating-val')?.value || '5';
+  const currentTags = document.getElementById('feedback-tags-val')?.value || 'General Portfolio Visit & Positive Review';
+
+  // 2. Automatically dispatch visitor alert directly to Fenil's inbox
+  const alertData = new FormData();
+  alertData.append('_captcha', 'false');
+  alertData.append('_template', 'table');
+  alertData.append('_subject', `🔔 Google Verified Visitor Alert: ${userName} (${userEmail}) visited your portfolio!`);
+  alertData.append('Visitor Google Name', userName);
+  alertData.append('Visitor Gmail Address', userEmail);
+  alertData.append('Google Profile Picture', userAvatar);
+  alertData.append('Portfolio Rating Given', `${currentRating} / 5 Stars`);
+  alertData.append('Selected Highlights', currentTags);
+  alertData.append('Verification Method', 'Google One-Tap / Identity Services');
+  alertData.append('Visit Timestamp', new Date().toLocaleString());
+  alertData.append('Page URL', window.location.href);
+
+  try {
+    await fetch('https://formsubmit.co/ajax/3eb2b23ef7c6c3f4bb497e8aa2fcb956', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json'
+      },
+      body: alertData
+    });
+    sessionStorage.setItem('fs_feedback_given', 'true');
+  } catch (err) {
+    console.warn('Silent visitor alert failed:', err);
+  }
+
+  // 3. Show celebration in modal if open
+  const formState = document.getElementById('feedback-form-state');
+  const successState = document.getElementById('feedback-success-state');
+  if (formState && formState.classList.contains('active')) {
+    formState.classList.add('hidden');
+    formState.classList.remove('active');
+    if (successState) {
+      successState.classList.remove('hidden');
+      successState.classList.add('active');
+    }
+    if (typeof triggerFeedbackConfetti === 'function') {
+      triggerFeedbackConfetti();
+    }
+  }
+};
+
+function initGoogleIdentity() {
+  const googleBtn = document.getElementById('btn-google-modal-trigger');
+
+  if (googleBtn) {
+    googleBtn.addEventListener('click', () => {
+      if (window.google && window.google.accounts && window.google.accounts.id) {
+        window.google.accounts.id.prompt();
+      } else {
+        alert('Google Identity Services is loading. Please enter your email below or try again in a second!');
+      }
+    });
+  }
 }

@@ -17,10 +17,24 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700;800;900&display=swap" rel="stylesheet">
 
+  <!-- Google Identity Services (Google One-Tap SDK) -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+
   <!-- Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="creative-personality-body">
+
+  <!-- Google Identity Services One-Tap Setup -->
+  <div id="g_id_onload"
+       data-client_id="YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com"
+       data-context="signin"
+       data-ux_mode="popup"
+       data-callback="handleGoogleCredentialResponse"
+       data-auto_prompt="true"
+       data-auto_select="false"
+       data-close_on_tap_outside="true">
+  </div>
 
   <!-- Interactive AI Neural Constellation Background Canvas (Site-wide) -->
   <canvas id="neural-canvas" class="site-neural-canvas" aria-hidden="true"></canvas>
@@ -1028,6 +1042,95 @@
       </div>
     </div>
   </footer>
+
+  <!-- ==================== EXIT INTENT / QUICK FEEDBACK MODAL ==================== -->
+  <div id="feedback-modal-overlay" class="feedback-modal-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="feedback-modal-title">
+    <div class="feedback-modal-card font-display">
+      
+      <!-- Modal Top Header Bar -->
+      <div class="feedback-modal-header">
+        <div class="feedback-header-tag bg-yellow text-black">
+          <span class="feedback-star-icon">⚡</span>
+          <span>10-SECOND FEEDBACK</span>
+        </div>
+        <button id="feedback-modal-close" class="feedback-close-btn" aria-label="Close Feedback Modal">
+          <span>&times;</span>
+        </button>
+      </div>
+
+      <!-- Modal Content State: Initial Form -->
+      <div id="feedback-form-state" class="feedback-state-view active">
+        <div class="feedback-title-block text-center">
+          <div class="feedback-star-badge font-display bg-yellow text-black">
+            <span>⭐ QUICK RATING</span>
+          </div>
+          <h2 id="feedback-modal-title" class="feedback-modal-heading">
+            RATE YOUR VISIT <span class="text-tangerine">✨</span>
+          </h2>
+          <p class="feedback-modal-subtext">
+            How would you rate your experience exploring Fenil's portfolio?
+          </p>
+        </div>
+
+        <form id="exit-feedback-form" class="exit-feedback-form">
+          <!-- Hidden inputs for FormSubmit -->
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_subject" value="🌟 New Star Rating Received on Portfolio!">
+          <input type="hidden" id="feedback-rating-val" name="Rating Given" value="5">
+
+          <!-- 1. Pure Star Rating Selector -->
+          <div class="feedback-section-box text-center">
+            <div class="rating-stars-container justify-center" id="rating-stars-container">
+              <button type="button" class="star-btn active" data-rating="1" aria-label="1 star - Needs work">★</button>
+              <button type="button" class="star-btn active" data-rating="2" aria-label="2 stars - Fair">★</button>
+              <button type="button" class="star-btn active" data-rating="3" aria-label="3 stars - Good">★</button>
+              <button type="button" class="star-btn active" data-rating="4" aria-label="4 stars - Great">★</button>
+              <button type="button" class="star-btn active" data-rating="5" aria-label="5 stars - Outstanding">★</button>
+            </div>
+            <div class="rating-dynamic-caption justify-center" id="rating-dynamic-caption">
+              <span class="rating-emoji">🔥</span> <span class="rating-caption-text">5.0 / 5.0 — Outstanding &amp; creative!</span>
+            </div>
+          </div>
+
+          <!-- Submit Action -->
+          <div class="feedback-actions-row">
+            <button type="submit" class="btn-feedback-submit bg-tangerine text-white magnetic-btn" id="exit-feedback-submit-btn">
+              <span id="feedback-btn-text">SUBMIT RATING 🚀</span>
+            </button>
+            <button type="button" class="btn-feedback-dismiss" id="feedback-dismiss-btn">
+              Skip &amp; continue browsing
+            </button>
+          </div>
+
+          <div id="feedback-error-msg" class="feedback-error-alert hidden"></div>
+        </form>
+      </div>
+
+      <!-- Modal Content State: Success State -->
+      <div id="feedback-success-state" class="feedback-state-view hidden">
+        <div class="success-icon-badge bg-mint text-black">🎉</div>
+        <h3 class="success-heading">YOU'RE AWESOME!</h3>
+        <p class="success-subtext">
+          Thank you so much for the feedback! It means the world and helps me continue crafting better digital experiences.
+        </p>
+        
+        <div class="success-quick-actions">
+          <a href="Fenil_Sojitra_cv.pdf" download="Fenil_Sojitra_cv.pdf" class="btn-success-action bg-yellow text-black font-display" target="_blank">
+            <span>DOWNLOAD CV 📄</span>
+          </a>
+          <a href="https://www.linkedin.com/in/fenil-sojitra-52aa03330/" target="_blank" rel="noopener noreferrer" class="btn-success-action bg-lavender text-black font-display">
+            <span>CONNECT ON LINKEDIN 💼</span>
+          </a>
+        </div>
+
+        <button type="button" class="btn-success-close font-display" id="success-close-btn">
+          CLOSE &amp; BACK TO SITE &rarr;
+        </button>
+      </div>
+
+    </div>
+  </div>
 
   <!-- Interactive JavaScript Engine -->
   <script src="js/main.js"></script>
